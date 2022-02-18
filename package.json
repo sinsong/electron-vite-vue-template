@@ -3,9 +3,7 @@
   "productName": "Electron Vite Vue 3 Template",
   "version": "0.0.0",
   "main": "dist/main/main.js",
-  "repository": {
-    "url": ""
-  },
+  "repository": "https://github.com/sinsong/electron-vite-vue-template",
   "license": "BSD-2-Clause",
   "scripts": {
     "build": "run-s rollup:main rollup:preload renderer:build",

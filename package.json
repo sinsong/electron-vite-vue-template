@@ -1,0 +1,47 @@
+{
+  "name": "electron-vite-vue-template",
+  "productName": "Electron Vite Vue 3 Template",
+  "version": "0.0.0",
+  "main": "dist/main/main.js",
+  "repository": {
+    "url": ""
+  },
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "build": "run-s rollup:main rollup:preload renderer:build",
+    "build:main": "run-s rollup:main rollup:preload",
+    "electron": "electron .",
+    "dev": "cross-env NODE_ENV=development run-p renderer:vite electron",
+    "predev": "npm run build:main",
+    "renderer:vite": "vite",
+    "renderer:build": "vite build",
+    "renderer:preview": "vite preview",
+    "rollup:main": "rollup src/main/main.js --file dist/main/main.js -c rollup.config.js",
+    "rollup:preload": "rollup src/preload/preload.js --file dist/preload/preload.js -c rollup.config.js",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "dependencies": {
+    "vue": "^3.2.23"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^17.0.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.67.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "vite": "^2.8.4"
+  },
+  "config": {
+    "forge": "./forge.config.js"
+  }
+}

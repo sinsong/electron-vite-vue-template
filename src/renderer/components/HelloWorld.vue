@@ -9,8 +9,16 @@ const count = ref(0)
 const pingresult = ref('...')
 const baseurl = ref('')
 
+const nodeVersion     = ref('')
+const chromeVersion   = ref('')
+const electronVersion = ref('')
+
 onMounted(async () => {
   baseurl.value = document.baseURI
+
+  nodeVersion.value     = App.versions['node']
+  chromeVersion.value   = App.versions['chrome']
+  electronVersion.value = App.versions['electron']
 })
 
 function ping() {
@@ -51,6 +59,12 @@ function ping() {
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
+  </p>
+
+  <p>
+    We are using Node.js {{ nodeVersion }},
+    Chromium {{ chromeVersion }},
+    and Electron {{ electronVersion }}.
   </p>
 
   <p>

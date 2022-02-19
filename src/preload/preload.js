@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require("electron/renderer");
+import { contextBridge, ipcRenderer } from 'electron/renderer'
 
 let versions = {}
 

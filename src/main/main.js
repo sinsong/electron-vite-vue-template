@@ -1,29 +1,11 @@
-const { app, protocol, BrowserWindow, ipcMain } = require('electron/main')
-const path = require('path')
+import { app, BrowserWindow } from 'electron/main'
+import path from 'path'
 
-// grant app://
-protocol.registerSchemesAsPrivileged([{
-  scheme: 'app',
-  privileges: {
-    secure: true,
-    standard: true, // work as http://
-    supportFetchAPI: true,
-    // allowServiceWorkers: true,
-  }
-}])
+import { registerProtocolsPrivilege, registerProtocols } from './protocols'
+import ipc from './ipc'
 
-// registe app://
-function registerProtocol()
-{
-  protocol.registerFileProtocol('app', (request, callback) => {
-    // console.log(`app-protocol: ${request.url}`);
-    let requrl = new URL(request.url)
-    let reqpath = requrl .pathname
-    let boundary = path.join('/', reqpath) // used for prevent ../.. attack
-    
-    callback({ path: path.join(app.getAppPath(), 'dist/renderer', boundary) })
-  })
-}
+registerProtocolsPrivilege()
+ipc()
 
 function createWindow()
 {
@@ -46,7 +28,7 @@ function createWindow()
 }
 
 app.whenReady().then(() => {
-  registerProtocol()
+  registerProtocols()
   createWindow()
 
   app.on('activate', function() {
@@ -58,9 +40,4 @@ app.whenReady().then(() => {
 // Quit when all windows are closed, except on macOS
 app.on('window-all-closed', function() {
   if(process.platform !== 'darwin') app.quit()
-})
-
-// IPC Main
-ipcMain.handle('ping', (event) => {
-  return 'pong'
 })

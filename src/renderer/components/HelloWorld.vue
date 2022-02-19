@@ -49,7 +49,7 @@ function ping() {
     <a href="https://v3.vuejs.org/" target="_blank" class="vue">Vue 3 Documentation</a>
     |
     <a
-      href="https://vitejs.dev/guide/features.html"
+      href="https://vitejs.dev/"
       target="_blank"
       class="vite"
     >Vite Documentation</a>

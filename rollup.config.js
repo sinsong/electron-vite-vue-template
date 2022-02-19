@@ -5,7 +5,14 @@ import { terser } from 'rollup-plugin-terser'
 export default {
   output: {
     format: 'cjs',
-    exports: 'auto'
+    exports: 'auto',
+    entryFileNames: '[name].js',
+    chunkFileNames: '[name].[hash].js',
+    manualChunks: (id) => {
+      if (id.includes('node_modules')) {
+        return 'vendor'
+      }
+    }
   },
   external: [
     'electron',

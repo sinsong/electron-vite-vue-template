@@ -14,8 +14,8 @@
     "renderer:vite": "vite",
     "renderer:build": "vite build",
     "renderer:preview": "vite preview",
-    "rollup:main": "rollup src/main/main.js --file dist/main/main.js -c rollup.config.js",
-    "rollup:preload": "rollup src/preload/preload.js --file dist/preload/preload.js -c rollup.config.js",
+    "rollup:main": "rollup src/main/main.js --dir dist/main -c rollup.config.js",
+    "rollup:preload": "rollup src/preload/preload.js --dir dist/preload -c rollup.config.js",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"

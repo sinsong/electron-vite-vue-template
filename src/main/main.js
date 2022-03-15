@@ -14,17 +14,16 @@ function createWindow()
     height: 768,
     webPreferences: {
       preload: path.join(app.getAppPath(), 'dist/preload', 'preload.js')
-    }
+    },
+    backgroundColor: '#2b2e3b',
   })
 
-  let loadurl = (process.env.NODE_ENV === 'development') ?
-    'http://localhost:3000' :   // development
-    'app://renderer/index.html' // builded
-
-  mainWindow.loadURL(loadurl)
+  mainWindow.loadURL('__mainWindowLoadURL__')
   
   // Open the DevTools
-  mainWindow.webContents.openDevTools({mode: 'detach'})
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.webContents.openDevTools({mode: 'detach'})
+  })
 }
 
 app.whenReady().then(() => {

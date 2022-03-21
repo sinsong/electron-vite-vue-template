@@ -15,16 +15,17 @@ export default {
       if (id.includes('node_modules')) {
         return 'vendor'
       }
-    }
+    },
   },
   external: [
     'electron',
     'electron/main',
-    'electron/renderer'
+    'electron/renderer',
   ],
   plugins: [
     replace({
-      __mainWindowLoadURL__: isDevelopment ? 'http://localhost:3000' : 'app://renderer/index.html',
+      '__MAIN_WINDOW_LOADURL__': isDevelopment ? '"http://localhost:3000"' : '"app://renderer/index.html"',
+      preventAssignment: true,
     }),
     nodeResolve(),
     commonjs(),

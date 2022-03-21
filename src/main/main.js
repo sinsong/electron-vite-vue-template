@@ -18,7 +18,7 @@ function createWindow()
     backgroundColor: '#2b2e3b',
   })
 
-  mainWindow.loadURL('__mainWindowLoadURL__')
+  mainWindow.loadURL(__MAIN_WINDOW_LOADURL__)
   
   // Open the DevTools
   mainWindow.once('ready-to-show', () => {

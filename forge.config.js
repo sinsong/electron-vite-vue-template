@@ -8,7 +8,7 @@ module.exports = {
       /^\/\.gitignore$/,
       /^\/index.html$/,
       /^\/(vite\.config\.js|forge\.config\.js)$/,
-      /^\/rollup\.config\.js$/,
+      /^\/rollup\.config\.mjs$/,
       /^\/[^\/]+.md$/
     ]
   },

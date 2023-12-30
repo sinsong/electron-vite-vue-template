@@ -55,7 +55,7 @@ function ping() {
     >Vite Documentation</a>
   </p>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <v-btn @click="count++">count is: {{ count }}</v-btn>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -77,7 +77,7 @@ function ping() {
   </p>
 
   <p>Electron IPC: {{ pingresult }}</p>
-  <button @click="ping">ping!</button>
+  <v-btn @click="ping">ping!</v-btn>
 </template>
 
 <style scoped>
